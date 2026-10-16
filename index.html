@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="hi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#10172a">
+  <meta name="description" content="Anshu Digital — मेरी डिजिटल दुनिया, लेख, गैलरी, डाउनलोड और AI सहायक।">
+  <meta name="robots" content="index,follow">
+  <meta property="og:title" content="Anshu Digital | मेरी डिजिटल दुनिया">
+  <meta property="og:description" content="लेख, गैलरी, उपयोगी डाउनलोड और AI सहायक — सब एक जगह।">
+  <meta property="og:type" content="website">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='15' fill='%23a78bfa'/%3E%3Ctext x='50%25' y='56%25' text-anchor='middle' font-family='Arial' font-size='23' font-weight='700' fill='%230b1020'%3EAD%3C/text%3E%3C/svg%3E">
+  <title>Anshu Digital | मेरी डिजिटल दुनिया</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Noto+Sans+Devanagari:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="config.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#home" aria-label="Anshu Digital home"><span class="brand-mark">AD</span><span>Anshu <b>Digital</b></span></a>
+    <button class="menu-toggle" id="menuToggle" aria-label="मेन्यू खोलें" aria-expanded="false">☰</button>
+    <nav id="navLinks" aria-label="मुख्य नेविगेशन">
+      <a href="#home" data-i18n="navHome">होम</a>
+      <a href="#about" data-i18n="navAbout">परिचय</a>
+      <a href="#gallery" data-i18n="navGallery">गैलरी</a>
+      <a href="#blog" data-i18n="navBlog">ब्लॉग/न्यूज़</a>
+      <a href="#downloads" data-i18n="navDownloads">डाउनलोड</a>
+      <a href="#contact" data-i18n="navContact">संपर्क</a>
+      <button class="nav-login" id="openLogin" data-i18n="login">लॉगिन / साइनअप</button>
+      <a class="admin-nav" id="adminNav" href="#admin" hidden data-i18n="adminPanel">एडमिन पैनल</a>
+      <button class="lang-toggle" id="langToggle" aria-label="Switch language">EN</button>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="pulse"></span><span data-i18n="eyebrow">आपकी डिजिटल पहचान</span></p>
+        <h1 data-i18n="heroTitle">नमस्ते, स्वागत है<br><span>Anshu Digital</span></h1>
+        <p class="hero-text" data-i18n="heroText">मेरी डिजिटल दुनिया में आपका स्वागत है। यहाँ लेख, तस्वीरें, वीडियो, उपयोगी फाइलें और AI सहायक मिलेंगे।</p>
+        <div class="hero-actions">
+          <a class="button primary" href="#about"><span data-i18n="explore">वेबसाइट देखें</span><span>↗</span></a>
+          <a class="button secondary" href="#ai-assistant"><span data-i18n="askAI">AI से पूछें</span> ✦</a>
+        </div>
+        <div class="mini-note"><span class="spark">✦</span><span data-i18n="heroNote">हिंदी • English • मोबाइल-फ्रेंडली</span></div>
+      </div>
+      <div class="hero-art" aria-label="Anshu Digital graphic">
+        <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
+        <div class="glass-card"><div class="card-top"><span class="window-dots">● ● ●</span><span>MY DIGITAL SPACE</span></div><div class="big-monogram">A<span>D</span></div><div class="card-line"></div><p>CREATE. CONNECT. GROW.</p><div class="floating-tag tag-one">✦ Creative</div><div class="floating-tag tag-two">⌘ Digital</div></div>
+        <div class="star star-a">✳</div><div class="star star-b">✦</div>
+      </div>
+    </section>
+
+    <section class="quick-tools" aria-label="वेबसाइट खोजें">
+      <div class="search-wrap"><span aria-hidden="true">⌕</span><input id="siteSearch" type="search" placeholder="वेबसाइट पर लेख, फोटो और डाउनलोड खोजें…" data-i18n-placeholder="searchPlaceholder" aria-label="वेबसाइट में खोजें"><button id="clearSearch" type="button" data-i18n="clear">साफ करें</button></div>
+      <p id="searchStatus" class="search-status" aria-live="polite"></p>
+    </section>
+
+    <section class="section about-section" id="about">
+      <div class="section-heading"><p class="eyebrow">01 / <span data-i18n="aboutEyebrow">परिचय</span></p><h2 data-i18n="aboutTitle">मेरे बारे में</h2></div>
+      <div class="about-grid"><div class="about-symbol">AD<span>+</span></div><div><h3 data-i18n="aboutHeading">यह मेरी डिजिटल दुनिया है।</h3><p data-i18n="aboutText">यहाँ अपना परिचय, रुचियाँ, काम, उपलब्धियाँ और ज़रूरी लिंक जोड़ें। इस शुरुआती टेक्स्ट को अपनी जानकारी के अनुसार बदलें।</p><div class="chips"><span data-i18n="chip1">मेरी रुचियाँ</span><span data-i18n="chip2">मेरे लक्ष्य</span><span data-i18n="chip3">मेरी पहचान</span></div></div></div>
+    </section>
+
+    <section class="section gallery-section" id="gallery">
+      <div class="section-heading section-heading-row"><div><p class="eyebrow">02 / <span data-i18n="galleryEyebrow">यादें और पल</span></p><h2 data-i18n="galleryTitle">फोटो एवं वीडियो गैलरी</h2><p data-i18n="galleryText">उदाहरण सामग्री दिखाई गई है। एडमिन पैनल से अपनी मीडिया जोड़ सकते हैं।</p></div><div class="filter-row"><button class="filter-button active" data-filter="all" data-i18n="all">सभी</button><button class="filter-button" data-filter="photo" data-i18n="photos">फोटो</button><button class="filter-button" data-filter="video" data-i18n="videos">वीडियो</button></div></div>
+      <div class="gallery-grid" id="galleryGrid">
+        <figure class="photo photo-wide searchable" data-kind="photo" data-search="नई शुरुआत आसमान photo"><img src="https://images.unsplash.com/photo-1519608487953-e999c86e7455?auto=format&fit=crop&w=1100&q=80" alt="रात का आसमान" loading="lazy"><figcaption><b>नई शुरुआत</b><span>हर दिन एक नया मौका</span></figcaption></figure>
+        <figure class="photo searchable" data-kind="photo" data-search="सुकून रोशनी photo"><img src="https://images.unsplash.com/photo-1490730141103-6cac27aaab94?auto=format&fit=crop&w=800&q=80" alt="सुबह की सुनहरी रोशनी" loading="lazy"><figcaption><b>सुकून के पल</b><span>छोटी खुशियाँ</span></figcaption></figure>
+        <figure class="photo video-card searchable" data-kind="video" data-search="वीडियो digital inspiration"><a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer" aria-label="वीडियो उदाहरण खोलें"><div class="video-placeholder"><span>▶</span><small>VIDEO</small></div></a><figcaption><b>वीडियो गैलरी</b><span>अपना वीडियो लिंक एडमिन से जोड़ें</span></figcaption></figure>
+      </div>
+      <p id="galleryEmpty" class="empty-state" hidden>इस फ़िल्टर में अभी कोई सामग्री नहीं है।</p>
+    </section>
+
+    <section class="section blog-section" id="blog">
+      <div class="section-heading"><p class="eyebrow">03 / BLOG & NEWS</p><h2 data-i18n="blogTitle">ब्लॉग और न्यूज़</h2><p data-i18n="blogText">नई पोस्ट और अपडेट यहाँ दिखेंगे। अभी कुछ शुरुआती नमूने हैं।</p></div>
+      <div class="content-grid" id="postsGrid">
+        <article class="content-card searchable" data-search="वेबसाइट की शुरुआत guide website"><div class="content-icon">✦</div><p class="card-kicker">GUIDE · 01</p><h3>अपनी डिजिटल पहचान बनाना</h3><p>एक अच्छा होम पेज, साफ जानकारी और उपयोगी लिंक आपकी वेबसाइट को बेहतर बनाते हैं।</p><span class="card-tag">शुरुआती गाइड</span></article>
+        <article class="content-card searchable" data-search="सुरक्षा privacy password"><div class="content-icon">⌘</div><p class="card-kicker">DIGITAL · 02</p><h3>ऑनलाइन सुरक्षा ज़रूरी है</h3><p>मजबूत पासवर्ड रखें और API keys या निजी जानकारी कभी सार्वजनिक कोड में न डालें।</p><span class="card-tag">डिजिटल सुरक्षा</span></article>
+        <article class="content-card searchable" data-search="AI assistant artificial intelligence"><div class="content-icon">✧</div><p class="card-kicker">AI · 03</p><h3>AI सहायक का उपयोग</h3><p>AI से पढ़ाई, विचारों और लेखन में मदद लें, लेकिन महत्वपूर्ण जानकारी की जाँच ज़रूर करें।</p><span class="card-tag">AI</span></article>
+      </div>
+      <p id="postsEmpty" class="empty-state" hidden>आपकी खोज से मेल खाने वाला कोई लेख नहीं मिला।</p>
+    </section>
+
+    <section class="section downloads-section" id="downloads">
+      <div class="section-heading"><p class="eyebrow">04 / RESOURCES</p><h2 data-i18n="downloadsTitle">डाउनलोड सेक्शन</h2><p data-i18n="downloadsText">उपयोगी फाइलें और दस्तावेज़। एडमिन पैनल से अपने लिंक जोड़े जा सकते हैं।</p></div>
+      <div class="downloads-list" id="downloadsList"><article class="download-item searchable" data-search="website guide text file"><div class="file-icon">TXT</div><div class="download-info"><h3>Anshu Digital — शुरुआती गाइड</h3><p>वेबसाइट प्रोजेक्ट के बारे में एक छोटी टेक्स्ट फाइल।</p></div><a class="button secondary small-button" href="assets/website-guide.txt" download>डाउनलोड ↓</a></article></div>
+      <p id="downloadsEmpty" class="empty-state" hidden>आपकी खोज से मेल खाने वाली कोई फाइल नहीं मिली।</p>
+    </section>
+
+    <section class="ai-section" id="ai-assistant">
+      <div class="ai-copy"><p class="eyebrow">05 / AI ASSISTANT</p><h2 data-i18n="aiTitle">आपका AI सहायक</h2><p data-i18n="aiText">सवाल पूछें, किसी विषय को समझें या विचारों पर मदद लें। असली AI जवाबों के लिए सर्वर पर API key सेट करनी होगी।</p><div class="ai-badges"><span>Hindi + English</span><span>Chat-style UI</span><span>Private API key</span></div><p class="ai-note" id="aiStatus">AI सेटअप पूरा होने पर यहाँ चैट चालू होगी।</p></div>
+      <div class="chat-card"><div class="chat-head"><div class="assistant-avatar">✦</div><div><b>Anshu AI</b><span><i class="online-dot"></i> <span data-i18n="aiReady">सहायक इंटरफ़ेस</span></span></div><button type="button" id="clearChat" title="चैट साफ करें" aria-label="चैट साफ करें">↺</button></div><div class="chat-messages" id="chatMessages" aria-live="polite"><div class="chat-bubble assistant-bubble">नमस्ते! मैं Anshu AI हूँ। मुझसे हिंदी या English में पूछें। असली जवाब के लिए AI API सेटअप होना चाहिए।</div></div><div class="suggestion-row"><button class="suggestion" data-prompt="मुझे एक वेबसाइट बनाने के अगले कदम समझाओ।">वेबसाइट के अगले कदम</button><button class="suggestion" data-prompt="Explain artificial intelligence in simple Hindi.">AI आसान भाषा में</button></div><form id="chatForm" class="chat-composer"><textarea id="chatInput" rows="1" maxlength="2000" placeholder="अपना सवाल लिखें…" data-i18n-placeholder="chatPlaceholder" aria-label="अपना सवाल लिखें" required></textarea><button type="submit" id="sendChat" aria-label="संदेश भेजें">↑</button></form><p class="chat-disclaimer">AI गलती कर सकता है। निजी या संवेदनशील जानकारी न भेजें।</p></div>
+    </section>
+
+    <section class="section social-section" id="social">
+      <div class="section-heading"><p class="eyebrow">06 / CONNECT</p><h2 data-i18n="socialTitle">सोशल मीडिया</h2><p data-i18n="socialText">नीचे दिए गए लिंक config.js से अपनी प्रोफ़ाइल के अनुसार बदलें।</p></div>
+      <div class="social-links"><a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" class="social-link" id="instagramLink"><span>◎</span><b>Instagram</b><small>@yourprofile</small></a><a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer" class="social-link" id="youtubeLink"><span>▷</span><b>YouTube</b><small>Your channel</small></a><a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" class="social-link" id="facebookLink"><span>f</span><b>Facebook</b><small>Your page</small></a><a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" class="social-link" id="otherSocialLink"><span>↗</span><b>More links</b><small>Connect online</small></a></div>
+    </section>
+
+    <section class="contact-section" id="contact"><div class="contact-copy"><p class="eyebrow">07 / CONTACT</p><h2 data-i18n="contactTitle">बात करते हैं।</h2><p data-i18n="contactText">कोई सवाल, सुझाव या सहयोग? ईमेल या WhatsApp के जरिए संपर्क करें।</p><div class="contact-hint">अपनी वास्तविक संपर्क जानकारी <code>config.js</code> में जोड़ें।</div></div><div class="contact-card"><div class="contact-row"><span class="contact-icon">✉</span><div><small>ईमेल / Email</small><b id="contactEmailText">yourname@example.com</b></div></div><div class="contact-row"><span class="contact-icon">◉</span><div><small>WhatsApp</small><b id="contactPhoneText">नंबर सेट नहीं है</b></div></div><div class="contact-actions"><a class="button primary full" id="emailButton" href="mailto:yourname@example.com">ईमेल भेजें ↗</a><a class="button whatsapp-button full" id="whatsappButton" href="https://wa.me/" target="_blank" rel="noopener noreferrer">WhatsApp पर बात करें ↗</a></div><p class="privacy-note">अपना नंबर या ईमेल सार्वजनिक करने से पहले सोच लें। WhatsApp नंबर देश कोड सहित रखें, जैसे भारत के लिए 91 से शुरू करें।</p></div></section>
+
+    <section class="admin-section" id="admin" hidden><div class="section-heading"><p class="eyebrow">PRIVATE AREA</p><h2>एडमिन पैनल</h2><p>यह सेक्शन केवल उस अकाउंट के लिए है जिसे Supabase में admin role दिया गया है। डेटाबेस की सुरक्षा RLS policies से होती है।</p></div><div class="admin-grid"><form id="adminContentForm" class="admin-form"><h3>नई सामग्री प्रकाशित करें</h3><label for="contentType">सामग्री का प्रकार</label><select id="contentType"><option value="posts">ब्लॉग / न्यूज़</option><option value="gallery_items">फोटो / वीडियो</option><option value="downloads">डाउनलोड फाइल</option></select><label for="contentTitle">शीर्षक</label><input id="contentTitle" required maxlength="120" placeholder="शीर्षक लिखें"><label for="contentDescription">विवरण / कैप्शन</label><textarea id="contentDescription" rows="3" maxlength="1000" placeholder="संक्षिप्त विवरण"></textarea><label for="contentUrl">फाइल या मीडिया URL (वैकल्पिक)</label><input id="contentUrl" type="url" placeholder="https://..."><label for="contentFile">या फाइल चुनें (Storage सेटअप के बाद)</label><input id="contentFile" type="file" accept="image/*,video/*,.pdf,.txt,.doc,.docx"><p class="privacy-note">अपलोड किए जाने वाले वीडियो/फाइलों की सीमा अपने Storage प्लान के अनुसार रखें।</p><button class="button primary full" type="submit">प्रकाशित करें</button><p id="adminMessage" role="status" class="form-message"></p></form><div class="admin-help"><h3>एडमिन उपयोग</h3><p>लॉगिन ईमेल के JWT app_metadata में <code>role: admin</code> होना चाहिए। केवल UI छिपाना सुरक्षा नहीं है—इस प्रोजेक्ट में SQL RLS policies भी दी गई हैं।</p><div id="adminContentList" class="admin-content-list"><p class="muted">लोड हो रही सामग्री यहाँ दिखेगी।</p></div></div></div></section>
+  </main>
+
+  <footer><a class="brand footer-brand" href="#home"><span class="brand-mark">AD</span><span>Anshu <b>Digital</b></span></a><p>© <span id="year"></span> Anshu Digital · <span data-i18n="footerText">डिजिटल दुनिया, एक जगह</span></p><div class="footer-links"><a href="#social">Social</a><a href="#contact">Contact</a><a href="#home" class="back-top">ऊपर जाएँ ↑</a></div></footer>
+
+  <dialog id="loginDialog" class="login-dialog"><button class="close-dialog" id="closeLogin" aria-label="बंद करें">×</button><div class="login-mark">AD</div><p class="eyebrow">YOUR ACCOUNT</p><h2 id="authTitle">लॉगिन / साइनअप</h2><p class="login-info" id="authInfo">असली अकाउंट के लिए config.js में Supabase URL और anon key सेट करें।</p><div class="auth-tabs"><button type="button" class="auth-tab active" data-auth-mode="login">लॉगिन</button><button type="button" class="auth-tab" data-auth-mode="signup">साइनअप</button></div><form id="authForm"><label for="authName" id="authNameLabel" hidden>नाम</label><input id="authName" autocomplete="name" maxlength="80" placeholder="आपका नाम" hidden><label for="authEmail">ईमेल</label><input id="authEmail" type="email" autocomplete="email" required placeholder="you@example.com"><label for="authPassword">पासवर्ड</label><input id="authPassword" type="password" autocomplete="current-password" required minlength="8" placeholder="कम-से-कम 8 अक्षर"><button class="button primary full" type="submit" id="authSubmit">लॉगिन करें</button><button class="text-button" type="button" id="resetPassword">पासवर्ड भूल गए?</button><button class="text-button" type="button" id="logoutButton" hidden>लॉगआउट</button></form><p id="authMessage" class="login-message" role="status"></p></dialog>
+
+  <script src="script.js"></script>
+</body>
+</html>

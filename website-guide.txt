@@ -1,0 +1,9 @@
+ANSHU DIGITAL — शुरुआती गाइड
+
+इस वेबसाइट में होम पेज, फोटो/वीडियो गैलरी, ब्लॉग/न्यूज़, डाउनलोड सेक्शन, साइट सर्च, सोशल मीडिया लिंक, हिंदी/English स्विच और AI chat interface है।
+
+असली अकाउंट/एडमिन के लिए Supabase सेटअप और supabase_schema.sql जरूरी हैं।
+AI चैट के लिए Netlify Function और Netlify environment variable OPENAI_API_KEY जरूरी है।
+किसी भी secret key को config.js या सार्वजनिक JavaScript फाइल में न रखें।
+
+व्यक्तिगत जानकारी जैसे निजी पता, पासवर्ड या संवेदनशील दस्तावेज़ वेबसाइट पर सार्वजनिक न करें।
